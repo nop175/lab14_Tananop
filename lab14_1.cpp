@@ -17,3 +17,41 @@ int main(){
     cout << "\nMin = " << B[5];
     return 0;
 }
+void stat(const double x[],int y,double z[]){
+
+    double sumAv = 0 ,sigma = 0,hamo = 0,geo =1 ;
+    for (int i = 0; i < y; i++)
+    {
+        sumAv += x[i];
+    }
+            z[0] = sumAv/y;
+
+    for (int i = 0; i < y; i++)
+    {
+        sigma += pow(x[i]-z[0],2);
+    }
+            z[1] = sqrt(sigma/y);
+
+    for (int i = 0; i < y; i++)
+    {
+        geo *= x[i];
+
+    }
+            z[2] = pow(geo,(1.0/y));
+
+    for (int i = 0; i < y; i++)
+    {
+        hamo += 1/x[i] ;
+    }
+            z[3] = y/hamo;
+            double max = x[0],min =x[0];
+
+    for (int i = 0; i < y; i++)
+    {
+        if(x[i] > max) max = x[i];
+        if(x[i] < min) min = x[i];
+    }
+            z[4]=max;
+            z[5]=min;
+
+}
